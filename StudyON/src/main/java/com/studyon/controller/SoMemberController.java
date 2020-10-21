@@ -76,4 +76,9 @@ public class SoMemberController {
 		return "SoMember/regSuccess";
 	}
 	
+	@GetMapping("So_Login")
+	public void So_memLogin() {
+		log.info("Controller : memLogin...");
+	}
+	
 }
