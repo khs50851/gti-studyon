@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.studyon.persistence.So_LectureMapper">
+	
+	<insert id="So_LectureInsert">
+		insert into so_lecture(lect_code,lect_name,lect_teacher,lect_prcie,lect_tag1,lect_tag2,lect_tag3,lect_tag4,lect_tag5,lect_intro,lect_thumb) values(so_lecture_seq_code.nextval,#{lect_name},#{lect_teacher},#{lect_price},#{lect_tag1},#{lect_tag2},#{lect_tag3},#{lect_tag4},{#lect_tag5},#{lect_intro},#{lect_thumb})
+	</insert>
+	
+	<select id="lectNameChk" resultType="com.studyon.domain.So_LectureVO">
+		select lect_name from so_lecture where lect_name=#{param1}
+	</select>
+	
+	
+</mapper>
