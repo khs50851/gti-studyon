@@ -31,11 +31,8 @@ public class SoMemberController {
 	private static final Logger log = LoggerFactory.getLogger(SoMemberController.class);
 	@Autowired
 	private MailSendService mailsender;
-	private int x;
 	@Setter(onMethod_=@Autowired)
 	private So_MemberService service;
-	private int y;
-	
 	//회원 등록페이지
 	@GetMapping("So_Meminsert")
 	public void So_meminsert() {
