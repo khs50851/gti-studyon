@@ -31,10 +31,10 @@ public class SoMemberController {
 	private static final Logger log = LoggerFactory.getLogger(SoMemberController.class);
 	@Autowired
 	private MailSendService mailsender;
-	
+	private int x;
 	@Setter(onMethod_=@Autowired)
 	private So_MemberService service;
-	
+	private int y;
 	
 	//회원 등록페이지
 	@GetMapping("So_Meminsert")
@@ -75,5 +75,12 @@ public class SoMemberController {
 
 		return "SoMember/regSuccess";
 	}
+	
+	//로그인페이지
+	@GetMapping("So_Login")
+	public void So_memLogin() {
+		log.info("Controller : memLogin...");
+	}
+	
 	
 }

@@ -122,7 +122,7 @@
 -->
       </nav><!-- .nav-menu -->
 
-      <a href="#" class="get-started-btn scrollto">Sign In</a>
+      <a href="/SoMember/So_Login" class="get-started-btn scrollto">Sign In</a>
       <a href="/SoMember/So_Meminsert" class="get-started-btn scrollto">Sign Up</a>
 
     </div>
