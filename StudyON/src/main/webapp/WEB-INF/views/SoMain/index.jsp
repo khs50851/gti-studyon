@@ -176,7 +176,7 @@
           <div class="col-lg-3 col-md-4 d-flex">
             <div class="member">
               <img src="/img/cote-1.png" alt="">
-              <h4><a href="inner-page.html">코딩테스트는 스터디온에서</a></h4> 
+              <h4><a href="inner-page">코딩테스트는 스터디온에서</a></h4> 
               <p>장성욱</p>
               <div class="icon">
                 <i class="icofont-star"></i>
