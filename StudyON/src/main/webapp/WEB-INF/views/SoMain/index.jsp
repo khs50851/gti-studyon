@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file = "header.jsp" %>    
 
+
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
    
