@@ -20,6 +20,11 @@ public class SoMainController {
 		log.info("Controller : index.....");
 	}
 	
+	@GetMapping("inner-page")
+	public void So_innerPage() {
+		
+	}
+	
 	
 	
 }

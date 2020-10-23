@@ -483,7 +483,7 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding: 60px 0 120px 0;
   overflow: hidden;
 }
 
@@ -540,9 +540,6 @@ section {
 /*--------------------------------------------------------------
 # Featured Services
 --------------------------------------------------------------*/
-.featured-services {
-  padding: 0;
-}
 
 .featured-services .icon-box {
   padding: 20px;
@@ -555,6 +552,10 @@ section {
 
 .featured-services .icon {
   margin: 0 0 15px 0;
+}
+
+.featured-services .icon img {
+    width:308px;
 }
 
 .featured-services .icon i {
@@ -584,6 +585,10 @@ section {
 .featured-services .description {
   line-height: 24px;
   font-size: 14px;
+}
+
+.featured-services h2 {
+  text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -623,7 +628,6 @@ section {
 
 .counts .counters span {
   font-size: 48px;
-  display: block;
   color: #16df7e;
   font-weight: 700;
 }
@@ -636,13 +640,25 @@ section {
   font-weight: 600;
 }
 
+.font-italic {
+    color:#858ea1;
+    font-size: 14px;
+}
+
+.testimonials {
+    margin-top:20px;
+    height: 205px;
+    overflow: scroll;
+}
+
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
 .services .icon-box {
   text-align: center;
   border: 1px solid #fff;
-  padding: 80px 20px;
+  padding: 40px 20px;
+  height:250px;
   transition: all ease-in-out 0.3s;
   background: #fff;
 }
@@ -774,29 +790,7 @@ section {
 --------------------------------------------------------------*/
 .testimonials .testimonial-item {
   box-sizing: content-box;
-  min-height: 320px;
-}
-
-.testimonials .testimonial-item .testimonial-img {
-  width: 90px;
-  border-radius: 50%;
-  margin: -40px 0 0 40px;
-  position: relative;
-  z-index: 2;
-  border: 6px solid #fff;
-}
-
-.testimonials .testimonial-item h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 10px 0 5px 45px;
-  color: #111;
-}
-
-.testimonials .testimonial-item h4 {
-  font-size: 14px;
-  color: #999;
-  margin: 0 0 0 45px;
+    margin-bottom: 10px;
 }
 
 .testimonials .testimonial-item .quote-icon-left, .testimonials .testimonial-item .quote-icon-right {
@@ -820,30 +814,11 @@ section {
 .testimonials .testimonial-item p {
   font-style: italic;
   margin: 0 15px 0 15px;
-  padding: 20px 20px 60px 20px;
   background: white;
   position: relative;
   border-radius: 6px;
   position: relative;
   z-index: 1;
-}
-
-.testimonials .owl-nav, .testimonials .owl-dots {
-  margin-top: 5px;
-  text-align: center;
-}
-
-.testimonials .owl-dot {
-  display: inline-block;
-  margin: 0 5px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ddd !important;
-}
-
-.testimonials .owl-dot.active {
-  background-color: #16df7e !important;
 }
 
 @media (max-width: 767px) {
@@ -894,7 +869,10 @@ section {
 /*--------------------------------------------------------------
 # Team
 --------------------------------------------------------------*/
+
 .team .member {
+  width: 250px;
+  height: 300px;
   text-align: center;
   margin-bottom: 20px;
   padding: 30px 20px;
@@ -908,41 +886,32 @@ section {
 
 .team .member h4 {
   font-weight: 700;
-  margin-bottom: 2px;
   font-size: 18px;
+  
 }
 
-.team .member span {
-  font-style: italic;
-  display: block;
-  font-size: 13px;
+.h4 {
+    color: #206bfb;
+}
+
+.team .member .icon {
+    margin-top: -10px;
+    margin-bottom: 5px;
 }
 
 .team .member p {
-  padding-top: 10px;
   font-size: 14px;
   font-style: italic;
   color: #aaaaaa;
 }
 
-.team .member .social {
-  margin-top: 15px;
+.member i {
+    color:#fdcc11;
 }
 
-.team .member .social a {
-  color: #919191;
-  transition: 0.3s;
+.member a {
+    color:#444444;
 }
-
-.team .member .social a:hover {
-  color: #16df7e;
-}
-
-.team .member .social i {
-  font-size: 18px;
-  margin: 0 2px;
-}
-
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
@@ -1384,3 +1353,172 @@ section {
     text-align-last: center;
   }
 }
+
+/* inner-page */
+.inner-page {
+    padding-top: 20px;
+    height: 100vh;
+}
+
+.inner-page container {
+    background-position: fixed;
+}
+.cources {
+    margin-top:40px; 
+    height:160px;
+}
+.cources-img {
+    width:269px;
+    float:left;
+}
+
+.cources-img img {
+    width: 100%;
+}
+
+.cources-info {
+    float:left;
+    margin-left:30px;
+    height:180px;
+}
+
+.coursec-info table {
+    width:500px;
+}
+
+.cources-info td {
+    padding:0 0 0 3%;
+    width: 450px;
+}
+
+.cources i {
+    color:#fdcc11;
+    margin:-3px;
+}
+
+.cources-nav {
+    padding:0;
+}
+
+.cources-nav li {
+    list-style: none;
+    display:inline-block;
+    margin-right:20px;
+}
+
+.cources-nav li a{
+    color: #444444;
+}
+
+.tabmenu li:hover {
+    list-style: none;
+    display:inline-block;
+    margin-right:20px;
+    border-bottom: 2px solid #14c871;
+}
+
+.tabmenu{ 
+  position: relative; 
+}
+
+.tabmenu ul li{
+  display: inline-block;
+  height: 26px;
+}
+
+.tabmenu input{
+    display:none;
+
+}
+
+
+.tabCon{
+  display:none; 
+  text-align:left; 
+  position:absolute; 
+  left:0;  
+  margin-top: 10px;
+  box-sizing: border-box; 
+}
+
+
+.tabmenu input:checked ~ label{
+    border-bottom: 2px solid #14c871;
+     
+}
+.tabmenu input:checked ~ .tabCon{
+  display:block;
+}
+
+/*-- buybox --*/
+
+.buybox {
+    width:400px;
+    height: 100vh;
+    z-index: 999;
+    position:fixed;
+    top: 20%;
+    left: 63%;
+    border: 1px solid #e4e6ea;
+    background: #fff;
+    border-radius: 8px;
+    padding:2%;
+}
+
+.buybox h3 {
+    margin-top: 10px;
+}
+
+.buybutton {
+    width: 80%;
+    text-align: center;
+    padding:2%;
+    background-color: #14c871;
+    border-radius: 2px;
+    border: none;
+    color:#fff;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+.cartbutton {
+    width: 15%;
+    text-align: center;
+    padding: 6px;
+    background-color: #fff;
+    border-radius: 2px;
+    border: 1px solid #cdd1d9;
+    color:#5f687b;
+    margin-top: 15px;
+}
+
+/*-- mypage --*/
+.breadcrumbs-mypage {
+    padding: 15px 0;
+    min-height: 40px;
+    margin-top: 82px;
+}
+
+.mypage {
+    display:inline;
+}
+
+.mypage-left {
+    width:20%;
+    float: left;
+}
+
+.mypage-left li {
+    list-style: none;
+    line-height: 35px;
+}
+
+.mypage-right {
+     width:80%;
+     background-color: #fff;
+     float:left;
+}
+
+.mypage a {
+    color: #444444;
+} 
