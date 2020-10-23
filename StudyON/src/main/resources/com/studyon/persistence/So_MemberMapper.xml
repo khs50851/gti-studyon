@@ -12,6 +12,10 @@
 	select mem_id from so_member where mem_id=#{param1}
 	</select>
 	
+	<select id="phoneChk" resultType="com.studyon.domain.So_MemberVO">
+	select mem_phone from so_member where mem_phone=#{param1}
+	</select>
+	
 	<!-- 회원 인증키(난수) 생성 -->
 	<update id="GetKey" parameterType="Map">
 		update so_member set user_key = #{param2} where mem_id = #{param1}
@@ -21,5 +25,29 @@
 	<update id="alter_userKey" parameterType="Map">
 		update so_member set user_key = 'Y' where mem_id = #{param1} and user_key = #{param2}
 	</update>
+	
+	<!-- 로그인 -->
+	<select id="Login" resultType="com.studyon.domain.So_MemberVO">
+		select * from so_member where mem_id = #{mem_id} and mem_pw = #{mem_pw}
+	</select>
+	
+	<!-- ID찾기 -->
+	<select id="serchId" resultType="String">
+		select mem_id from so_member where mem_name = #{param1} and mem_phone = #{param2} and user_key='Y'
+	</select>
+	<!-- ID찾기를 위해 먼저 이름을 찾는다 -->
+	<select id="So_Memname" resultType="com.studyon.domain.So_MemberVO">
+		select * from so_member where mem_id = #{param1}
+	</select>
+	
+	<!-- 회원 임시비번으로 업데이트 -->
+	<update id="searchPassword" parameterType="Map">
+		update so_member set mem_pw = #{param3} where mem_id = #{param1} and mem_email = #{param2}
+	</update>
+	
+	<!-- PW찾기인데 ID와 Email값을 받아서 회원 검색할거 -->
+	<select id="Searchmem" resultType="com.studyon.domain.So_MemberVO">
+	select * from so_member where mem_email = #{param1} and mem_id = #{param2}
+	</select>
 	
 </mapper>

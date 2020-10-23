@@ -485,6 +485,26 @@
         </div>
 
       </div>
+      	<c:choose>
+	<c:when test="${row==1 }">
+		<script>
+			alert("회원 가입이 완료 되었습니다. 이메일을 통해 인증 완료 후 로그인 해주시기 바랍니다.");
+			location.replace("/SoMain/index");
+		</script>
+	</c:when>
+	<c:when test="${row==0 }">
+		<script>
+			alert("접속자가 많아서 등록이 지연되고 있습니다\n 잠시후에...");
+			history.back();
+		</script>
+	</c:when>
+	<c:when test="${row2==0 }">
+		<script>
+			alert("이메일로 임시비밀번확 전송되었습니다. 확인 후 마이페이지에서 비밀변호를 변경해주세요.");
+			location.replace("/SoMain/index");
+		</script>
+	</c:when>
+</c:choose>
     </section><!-- End Featured Services Section -->
 
   </main><!-- End #main -->

@@ -1,5 +1,7 @@
 package com.studyon.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,10 @@ public class SoMainController {
 		
 	}
 	
-	
+	@GetMapping("logout")
+	public String Logout(HttpSession session) {
+	session.invalidate();
+	return "redirect:/SoMain/index";
+	}
 	
 }
