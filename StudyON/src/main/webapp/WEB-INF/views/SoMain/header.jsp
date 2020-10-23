@@ -28,15 +28,21 @@
 
   <!-- Template Main CSS File -->
   <link href="/css/style.css" rel="stylesheet">
-  
-
-  
+  <script src="/vendor/jquery/jquery.min.js"></script>
   <!-- =======================================================
   * Template Name: eNno - v2.1.0
   * Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+    <script type="text/javascript">
+	$(document).ready(function(){
+		$("#LogoutBtn").on("click", function(){
+			location.href="logout";
+		})
+		
+	})
+</script>
 </head>
 
 <body>
@@ -110,8 +116,14 @@
 -->
       </nav><!-- .nav-menu -->
 
+      <c:if test="${member==null }">
       <a href="/SoMember/So_Login" class="get-started-btn scrollto">Sign In</a>
       <a href="/SoMember/So_Meminsert" class="get-started-btn scrollto">Sign Up</a>
+	</c:if>
+	<c:if test="${member!=null }">
+      <p>${member.mem_id }님 환영합니다.</p>
+     <button id="LogoutBtn" type="button">로그아웃</button>
+	</c:if>
 
     </div>
   </header><!-- End Header -->

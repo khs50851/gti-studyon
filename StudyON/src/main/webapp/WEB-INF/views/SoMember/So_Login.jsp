@@ -18,6 +18,7 @@ td {
 	border-collapse: collapse;
 }
 </style>
+
 <script>
 $(document).ready(function(){
 	$('form').on('submit',function(){

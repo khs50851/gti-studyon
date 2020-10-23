@@ -8,10 +8,10 @@
 <meta charset="UTF-8">
 <title>StudyOn회원가입</title>
 
-<!-- 부트스트랩 -->
+<!-- Jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!--  <script type="text/javascript" src="<c:url value="/js/jquery-3.3.1.min.js"/>"></script>-->
-
+<!-- 부트스트랩 -->
 <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
 
 <style type="text/css">
@@ -26,8 +26,6 @@ td {
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	
-
 //모든 공백 체크 정규식
 var empJ = /\s/g;
 //아이디 정규식
@@ -84,6 +82,35 @@ $("#mem_id").blur(function() {
 					}//else if
 					});//blur
 					
+					$("#mem_phone").blur(function() {
+						if($('#mem_phone').val()==''){
+							$('#phone_check').text('전화번호를 입력하세요.');
+							$('#phone_check').css('color', 'red');
+							} else if($('#mem_phone').val()!=''){
+									var mem_phone=$('#mem_phone').val();
+									$.ajax({
+										type : 'POST',
+										data : mem_phone,
+										url : 'SearchId',
+										dataType : "json",
+							            contentType: "application/json; charset=UTF-8",
+										success : function(data){
+											console.log(data)
+											if(data.cnt1>0){
+												$('#phone_check').text('중복된 전화번호 입니다.');
+												$('#phone_check').css('color', 'red');
+												$("#submit").attr("disabled", true); 
+												}else{
+														$('#phone_check').text('사용가능한 전화번호 입니다.');
+														$('#phone_check').css('color', 'blue');
+														$("#submit").attr("disabled", false);
+													}
+											}
+										});//ajax///
+										}//else if
+										});//blur			
+										
+										
 $('form').on('submit',function(){
 	var inval_Arr = new Array(5).fill(false);
 	if (idJ.test($('#mem_id').val())) {
