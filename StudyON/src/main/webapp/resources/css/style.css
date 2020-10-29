@@ -1493,6 +1493,8 @@ section {
 }
 
 /*-- mypage --*/
+
+
 .breadcrumbs-mypage {
     padding: 15px 0;
     min-height: 40px;
@@ -1522,3 +1524,104 @@ section {
 .mypage a {
     color: #444444;
 } 
+
+
+/*-- 승진이코드--*/
+
+
+.heading{
+	padding : 10px;
+	
+}
+
+.box {
+    border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(0,10,18,.1), 0 0 0 1px rgba(0,10,18,.1);
+    color: #454545;
+    display: block;
+    padding: 1.25rem;
+	border-radius: 1px;
+	margin : 2.54%;
+}
+.a right{
+	display: inline-block;
+	float:right;
+	box-sizing : border-box;
+	min-width:107px;
+	min-height:22px;
+}
+
+
+.is-half{
+	display: inline-block;
+	float:left;
+	box-sizing : border-box;
+	min-width:375px;
+	min-height: 270px;
+	flex: none;
+    width: 50%;
+	
+}
+
+
+.profile .p{
+    font-size: 16px;
+	margin: 0;
+    line-height: 1.6;
+}
+
+
+.media {
+    align-items: flex-start;
+    display: flex;
+    text-align: left;
+}
+
+
+.profile{
+box-sizing : border-box;
+min-width:350px;
+min-height: 246px;
+
+}
+
+.hard{
+box-sizing : border-box;
+min-width:350px;
+min-height: 246px;
+
+}
+.note{
+box-sizing : border-box;
+min-width:350px;
+min-height: 246px;
+
+}
+
+.plus{
+box-sizing : border-box;
+min-width:350px;
+min-height: 246px;
+
+}
+
+.ingstudy{
+box-sizing : border-box;
+min-width:350px;
+min-height: 246px;
+
+}
+.perfect{
+box-sizing : border-box;
+min-width:350px;
+min-height: 246px;
+
+}
+.plus .box_content {
+    text-align: center;
+}
+.box_content {
+    overflow: auto;
+    height: calc(100% - 25px);
+}
+	

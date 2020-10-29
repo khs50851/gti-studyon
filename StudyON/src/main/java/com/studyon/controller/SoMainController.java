@@ -33,4 +33,9 @@ public class SoMainController {
 	return "redirect:/SoMain/index";
 	}
 	
+	@GetMapping("mypage")
+	public void So_mypage() {
+		log.info("Controller:mypage....");
+	}
+	
 }
