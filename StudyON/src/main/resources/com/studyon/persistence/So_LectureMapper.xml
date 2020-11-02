@@ -5,12 +5,17 @@
 <mapper namespace="com.studyon.persistence.So_LectureMapper">
 	
 	<insert id="So_LectureInsert">
-		insert into so_lecture(lect_code,lect_name,lect_teacher,lect_prcie,lect_tag1,lect_tag2,lect_tag3,lect_tag4,lect_tag5,lect_intro,lect_thumb) values(so_lecture_seq_code.nextval,#{lect_name},#{lect_teacher},#{lect_price},#{lect_tag1},#{lect_tag2},#{lect_tag3},#{lect_tag4},{#lect_tag5},#{lect_intro},#{lect_thumb})
+		insert into lecture(lect_code,lect_name,lect_teacher,lect_price,lect_tag1,lect_tag2,lect_tag3,lect_tag4,lect_tag5,lect_intro,lect_thumb) values(seq_lecture.nextval,#{lect_name},#{lect_teacher},#{lect_price},#{lect_tag1},#{lect_tag2},#{lect_tag3},#{lect_tag4},#{lect_tag5},#{lect_intro},#{lect_thumb})
 	</insert>
 	
 	<select id="lectNameChk" resultType="com.studyon.domain.So_LectureVO">
 		select lect_name from so_lecture where lect_name=#{param1}
 	</select>
 	
-	
+	<!-- 강의 정보 조회 -->
+	<select id="getLectInfo" resultType="com.studyon.domain.So_LectureVO">
+	<![CDATA[
+		select * from lecture where lect_code > 0
+	]]>	
+	</select>
 </mapper>

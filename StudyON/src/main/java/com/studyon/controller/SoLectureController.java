@@ -4,15 +4,18 @@ import java.io.File;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.studyon.domain.So_LectureVO;
+import com.studyon.service.So_LectureService;
+
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j;
+import lombok.Setter;
 
 @Controller
 @AllArgsConstructor
@@ -24,12 +27,30 @@ public class SoLectureController {
 	// 파일 저장 위치
 //	private static final String uploadFolder = "/Volumes/HoMill D drive/Programing_Project/StudyON_Upload/lecture"; 
 	
+	@Setter(onMethod_ =@Autowired)
+	private So_LectureService service;
+	
 	
 	@GetMapping("So_Lectinsert")
 	public void So_lectinsert() {
 		log.info("Controller : lectinsert....");
 	}
 	
+	@GetMapping("So_LectListinsert")
+	public void So_lectListInsert() {
+		log.info("Controller : lectinsert....");
+	}
+	
+	
+	@PostMapping("lectureInsertpro")
+	public String lectureInsertpro(So_LectureVO vo) {
+		log.info("VO : "+vo);
+		log.info("Controller : lectureInsertpro");
+		
+		int row = service.So_LectureInsert(vo);
+		
+		return "redirect:/";
+	}
 	
 	// MultipartFile 타입
 	
@@ -54,8 +75,13 @@ public class SoLectureController {
 //	
 //	}
 	
-	// Ajax 타입
+	// 강의 저장하는 폴더 생성
+//	private String getFolder() {
+//		
+//		
+//	}
 	
+	// Ajax 타입
 	@PostMapping("/uploadAjaxAction")
 	public void uploadAjaxPost(MultipartFile[] uploadFile) {
 		
