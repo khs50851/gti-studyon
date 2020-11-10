@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +30,7 @@ public class SoLectureController {
 	
 	@Setter(onMethod_ =@Autowired)
 	private So_LectureService service;
-	
+
 	
 	@GetMapping("So_Lectinsert")
 	public void So_lectinsert() {
@@ -50,6 +51,13 @@ public class SoLectureController {
 		int row = service.So_LectureInsert(vo);
 		
 		return "redirect:/";
+	}
+	
+	@GetMapping("list")
+	public void list(Model model) {
+		log.info("Controler : list");
+		
+		model.addAttribute("list", service.getLectListAll());
 	}
 	
 	// MultipartFile 타입
@@ -75,7 +83,7 @@ public class SoLectureController {
 //	
 //	}
 	
-	// 강의 저장하는 폴더 생성
+//	 강의 저장하는 폴더 생성
 //	private String getFolder() {
 //		
 //		

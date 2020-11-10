@@ -44,7 +44,7 @@
 			</div>
 			
 			<div id="thumb">
-				<label for="intro">강의 썸네</label>
+				<label for="intro">강의 썸네일</label>
 				<textarea id="lect_thumb" name="lect_thumb" placeholder="lect_thumb"></textarea>
 			</div>
 			

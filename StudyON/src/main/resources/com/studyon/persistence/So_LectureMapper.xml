@@ -13,9 +13,14 @@
 	</select>
 	
 	<!-- 강의 정보 조회 -->
-	<select id="getLectInfo" resultType="com.studyon.domain.So_LectureVO">
+	<select id="getLectListAll" resultType="com.studyon.domain.So_LectureVO">
 	<![CDATA[
 		select * from lecture where lect_code > 0
 	]]>	
+	</select>
+	
+	<!--  강의 코드 가져오기 -->
+	<select id="getLectCode" resultType="com.studyon.domain.So_LectureVO">
+		select lect_code form lecture where lect_name=#{param1} 
 	</select>
 </mapper>

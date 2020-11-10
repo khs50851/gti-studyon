@@ -13,6 +13,6 @@ public interface So_LectureMapper {
 	public So_LectureVO lectNameChk(String lect);
 	
 	// 강의 정보 조회
-	public List<So_LectureVO> getLectInfo();
+	public List<So_LectureVO> getLectListAll();
 	
 }

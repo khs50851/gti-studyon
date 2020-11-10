@@ -1,5 +1,7 @@
 package com.studyon.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +27,12 @@ public class So_LectureServiceImpl implements So_LectureService {
 	public int So_LectureInsert(So_LectureVO lect) {
 		
 		return mapper.So_LectureInsert(lect);
+	}
+	
+	@Override
+	public List<So_LectureVO> getLectListAll() {
+		log.info("getLectListAll..............");
+		
+		return mapper.getLectListAll();
 	}
 }
