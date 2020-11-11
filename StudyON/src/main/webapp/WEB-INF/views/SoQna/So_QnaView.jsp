@@ -104,7 +104,7 @@ $(document).on('click', '#btnReplySave', function(){
 				console.log(data)
 				if(data.cnt>0){
 					alert('댓글이 등록되었습니다!');
-					console.log(data.cnt);
+					
 					$('#reply_content').val('');
 					showReplyList();
 				}
@@ -144,26 +144,44 @@ $(document).on('click', '#btnReplySave', function(){
 
 	//수정 클릭시
 	function fn_updateReply(reply_bno,mem_id,reply_content){
-	var allData={"reply_bno":reply_bno,"mem_id":mem_id,"reply_content":reply_content};
+	var allData={"reply_bno":reply_bno,"mem_id":mem_id,"reply_content":$('#editContent').val()};
 	$.ajax({
 		async:false,
 		type : 'POST',
 		data : JSON.stringify(allData),
-		url : 'So_ReviewModify',
+		url : 'So_ReplyModify',
 		dataType : "json",
         contentType: "application/json; charset=UTF-8",
 		success : function(data){
 			console.log(data)
 			if(data.cnt>0){
-				console.log("data.page 값 : "+data.page);
-				var oCar = new Object();
-				oCar.value = data.page;
-				moreList(oCar);
+				console.log("data.cnt 값 : "+data.cnt);
+				showReplyList();
 				}
 			}
 		});//ajax///
 }
 
+	//댓글 삭제
+
+	function fn_deleteReply(reply_bno){
+			var allData={"reply_bno":reply_bno};
+			$.ajax({
+				async:false,
+				type : 'POST',
+				data : JSON.stringify(allData),
+				url : 'So_ReplyDelete',
+				dataType : "json",
+		        contentType: "application/json; charset=UTF-8",
+				success : function(data){
+					if(data.cnt>0){
+						console.log("data 수정 값 : "+data.cnt);
+						alert('삭제되었습니다!');
+						showReplyList();
+						}
+					}
+				});
+		}
 	
 </script>
 </head>

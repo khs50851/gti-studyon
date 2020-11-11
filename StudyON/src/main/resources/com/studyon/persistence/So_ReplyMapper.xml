@@ -13,6 +13,12 @@
  		insert into so_reply(reply_bno,qna_bno,reply_content,mem_id,reply_regdate) values(so_reply_bno_seq.nextval,#{qna_bno},#{reply_content},#{mem_id},sysdate)
  	</insert>
  	
+ 	<update id="So_ReplyModify">
+ 		update so_reply set reply_content=#{reply_content},mem_id=#{mem_id} where reply_bno=#{reply_bno}
+ 	</update>
  	
  	
+ 	<delete id="So_ReplyDelete">
+		delete so_reply where reply_bno=#{reply_bno}
+	</delete>
 </mapper>

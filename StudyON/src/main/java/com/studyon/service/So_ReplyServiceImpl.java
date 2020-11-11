@@ -31,4 +31,13 @@ private static final Logger log = LoggerFactory.getLogger(So_ReplyServiceImpl.cl
 		return mapper.So_ReplyInsert(rvo);
 	}
 	
+	@Override
+	public int So_ReplyModify(So_ReplyVO rvo) {
+		return mapper.So_ReplyModify(rvo);
+	}
+	
+	@Override
+	public int So_ReplyDelete(So_ReplyVO rvo) {
+		return mapper.So_ReplyDelete(rvo);
+	}
 }

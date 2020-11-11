@@ -308,4 +308,27 @@ public class SoQnaController {
 		return map;
 	}
 	
+	@PostMapping("So_ReplyModify")
+	public Map<String, Object> SoReplyModify(@RequestBody So_ReplyVO rvo){
+		Map<String, Object> map = new HashMap<String, Object>();
+		log.info("So_replyModify.....");
+		log.info("RVO : "+rvo);
+		int row = rservice.So_ReplyModify(rvo);
+		log.info("modirow : "+row);
+		map.put("cnt", row);
+		return map;
+	}
+	
+	@ResponseBody
+	@PostMapping("So_ReplyDelete")
+	public Map<String, Object> Soreplydelete(@RequestBody So_ReplyVO rvo){
+		Map<String, Object> map = new HashMap<String, Object>();
+		log.info("So_replyDelete.........");
+		log.info("delete RVO : "+rvo);
+		int row = rservice.So_ReplyDelete(rvo);
+		log.info("derow : "+row);
+		map.put("cnt", row);
+		return map;
+	}
+	
 }
