@@ -19,8 +19,9 @@
 	]]>	
 	</select>
 	
-	<!--  강의 코드 가져오기 -->
+	<!--  강의 코드로 조회 -->
 	<select id="getLectCode" resultType="com.studyon.domain.So_LectureVO">
-		select lect_code form lecture where lect_name=#{param1} 
+		select * from lecture where lect_code = #{lect_code} 
 	</select>
+	
 </mapper>

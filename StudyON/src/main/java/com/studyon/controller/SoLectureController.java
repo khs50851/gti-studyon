@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.studyon.domain.So_LectureVO;
@@ -38,8 +39,10 @@ public class SoLectureController {
 	}
 	
 	@GetMapping("So_LectListinsert")
-	public void So_lectListInsert() {
+	public void So_lectListInsert(@RequestParam("lect_code") int lect_code, Model model) {
 		log.info("Controller : lectinsert....");
+		
+		model.addAttribute("list", service.getLectCode(lect_code));
 	}
 	
 	
@@ -82,12 +85,7 @@ public class SoLectureController {
 //		} // end of for
 //	
 //	}
-	
-//	 강의 저장하는 폴더 생성
-//	private String getFolder() {
-//		
-//		
-//	}
+
 	
 	// Ajax 타입
 	@PostMapping("/uploadAjaxAction")
@@ -95,7 +93,9 @@ public class SoLectureController {
 		
 		log.info("update ajax post.........");
 		
+		// 저장 폴더 위치
 		String uploadFolder = "/Volumes/HoMill D drive/Programing_Project/StudyON_Upload/lecture";
+		
 		
 		for (MultipartFile multipartFile : uploadFile) {
 			

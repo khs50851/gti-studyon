@@ -35,4 +35,11 @@ public class So_LectureServiceImpl implements So_LectureService {
 		
 		return mapper.getLectListAll();
 	}
+	
+	@Override
+	public So_LectureVO getLectCode(int lect_code) {
+		log.info("get............. " + lect_code);
+		
+		return mapper.getLectCode(lect_code);
+	}
 }

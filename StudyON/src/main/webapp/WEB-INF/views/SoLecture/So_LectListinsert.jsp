@@ -27,10 +27,13 @@
 		$("#uploadBtn").on("click", function(e){
 			
 			var formData = new FormData();
+			formData.append("lect_name",$("#lect_name").val());
 			
 			var inputFile = $("input[name='uploadFile']");
 			
 			var files = inputFile[0].files;
+			
+			
 			
 			console.log(files);
 			
@@ -74,12 +77,17 @@
 		<form action="" method="" role="form">
 			<div id="name">
 				<label for="name">강의명</label>
-				<input type="text" id="lect_name" name="lect_name" placeholder="lect_name">
+				<input type="text" id="lect_name" name="lect_name" value="<c:out value='${list.lect_name}' />" readonly="readonly">
 			</div>
 			
 			<div id="code">
 				<label for="code">강의코드</label>
-				<input type="text" id="lect_code" name="lect_code" placeholder="lect_code">
+				<input type="text" id="lect_code" name="lect_code" value="<c:out value='${list.lect_code}' />" readonly="readonly">
+			</div>
+			
+			<div id="round">
+				<label for="round">강의회차</label>
+				<input type="text" id="lect_round" name="lect_round" placeholder="lect_round">
 			</div>
 		</form>
 	</div>
