@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.studyon.persistence.So_ReplyMapper">
+	
+	<!-- 댓글 리스트 -->
+ 	<select id="So_ReplyList" resultType="com.studyon.domain.So_ReplyVO">
+ 		select reply_bno, qna_bno, reply_content, mem_id, reply_regdate from so_reply where qna_bno = #{param1} ORDER BY reply_regdate desc
+ 	</select>
+ 	
+ 	<insert id="So_ReplyInsert">
+ 		insert into so_reply(reply_bno,qna_bno,reply_content,mem_id,reply_regdate) values(so_reply_bno_seq.nextval,#{qna_bno},#{reply_content},#{mem_id},sysdate)
+ 	</insert>
+ 	
+ 	
+ 	
+</mapper>

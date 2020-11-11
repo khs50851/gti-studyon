@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.studyon.persistence.So_QnaMapper">
+
+
+	<insert id="So_QnaWrite">
+		insert into so_qna(qna_bno,qna_title,qna_content,mem_id,regdate) values(so_qna_seq_bno.nextval,#{qna_title},#{qna_content},#{mem_id},sysdate)
+	</insert>
+	
+	<!--  
+	<select id="So_QnaList" resultType="com.studyon.domain.So_QnaVO">
+		select * from so_qna order by qna_bno desc
+	</select>
+	-->
+	
+
+	<select id="So_QnaView" resultType="com.studyon.domain.So_QnaVO">
+		select * from so_qna where qna_bno=#{param1}
+	</select>
+	
+	<update id="So_QnaModify">
+		update so_qna set qna_title = #{qna_title}, qna_content = #{qna_content}, regdate = sysdate where qna_bno = #{qna_bno}
+	</update>
+	
+	<delete id="So_QnaDelete">
+		delete so_qna where qna_bno=#{param1}
+	</delete>
+	
+	<!-- 전체 글 개수 카운트 -->
+	<select id="So_QnaCount" resultType="int">
+		select count(*) from so_qna
+	</select>
+	
+	<!-- 검색한 글 개수 카운트 -->	
+	<select id="So_QnaCountSearch" resultType="int">
+      select count(*) from so_qna where
+      <choose>
+         <when test="search=='mem_id'">
+            mem_id like '%' || #{key} || '%'
+         </when>
+         <when test="search=='qna_title'">
+            qna_title like '%' || #{key} || '%'
+         </when>
+         <when test="search=='qna_content'">
+            qna_content like '%' || #{key} || '%'
+         </when>
+      </choose>
+   </select>
+   
+   <!-- 전체글 리스트 -->
+   <select id="So_QnaList" resultType="com.studyon.domain.So_QnaVO">
+	<!-- cdata는 캐릭터데이터로 >= 이런걸 그냥 문자로 인식하라는 뜻 -->
+	<![CDATA[ 
+		select X.* from (select rownum as rnum, A.* from (select * from so_qna order by qna_bno desc) A where rownum <= #{endpage}) X where X.rnum >= #{startpage}
+	]]>
+	</select>
+	
+	<!-- 검색조건에 맞는 카운트 --> <!--  mybatis에선 동적쿼리라고 함  -->
+	<!-- 마이바티스에선 and가 안먹힘 그래서 여기선 태그로 trim을 이용 -->
+	<select id="So_QnaListSearch" resultType="com.studyon.domain.So_QnaVO">
+      select X.* from (select rownum as rnum, a.* from (
+         select * from so_qna order by qna_bno desc) A where 
+         <choose>
+         <when test="search=='mem_id'"> <!-- search=변수명/'name'=값  즉 검색을 이름으로 했을때-->
+             mem_id like '%' || #{key} || '%'
+         </when> 
+         <when test="search=='qna_title'"> <!-- search=변수명/'subject'=값  즉 검색을 제목으로 했을때 -->
+            qna_title like '%' || #{key} || '%'
+         </when>
+         <when test="search=='qna_content'"> <!-- search=변수명/'contents'=값  즉 검색을 내용으로 했을때-->
+            qna_content like '%' || #{key} || '%'
+         </when>
+      </choose>
+         <trim prefix="AND"><!-- and를 인식하지 못하므로 trim을 이용하여 and를 인식할 수 있게 해줌 -->
+               <![CDATA[
+                  rownum <= #{endpage}) X where 
+               ]]>               
+         </trim>
+         <choose>
+         <when test="search=='mem_id'"> <!-- search=변수명/'name'=값  즉 검색을 이름으로 했을때-->
+             mem_id like '%' || #{key} || '%'
+         </when> 
+         <when test="search=='qna_title'"> <!-- search=변수명/'subject'=값  즉 검색을 제목으로 했을때 -->
+            qna_title like '%' || #{key} || '%'
+         </when>
+         <when test="search=='qna_content'"> <!-- search=변수명/'contents'=값  즉 검색을 내용으로 했을때-->
+            qna_content like '%' || #{key} || '%'
+         </when>
+      </choose>
+         <trim prefix="AND">
+            <![CDATA[
+               X.rnum >= #{startpage}
+            ]]>
+         </trim>
+      </select>
+	
+</mapper>

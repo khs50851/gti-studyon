@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.studyon.persistence.So_ReviewMapper">
+
+
+	<insert id="reviewinsert">
+		insert into review(bno,contents,regdate,rate,mem_id) values(rev_seq.nextval,#{contents},sysdate,#{rate},#{mem_id})
+	</insert>
+
+	<!--  
+	<select id="So_ReviewList" resultType="com.studyon.domain.So_ReviewVO">
+		select * from review order by bno desc
+	</select>
+	-->
+	
+	 <!-- 전체글 리스트 -->
+	 <!-- cdata는 캐릭터데이터로 >= 이런걸 그냥 문자로 인식하라는 뜻 -->
+	 
+	 <!--  
+   <select id="So_ReviewList" resultType="com.studyon.domain.So_ReviewVO">
+	
+	<![CDATA[ 
+		select X.* from (select rownum as rnum, A.* from (select * from review order by bno desc) A where rownum <= #{endpage}) X where X.rnum >= #{startpage}
+	]]>
+	</select>
+	-->
+	<select id="So_ReviewList" resultType="com.studyon.domain.So_ReviewVO">
+	
+	<![CDATA[ 
+		select X.* from (select rownum as rnum, A.* from (select * from review order by bno desc) A where rownum <= #{endpage}) X where X.rnum >= 1
+	]]>
+	</select>
+	
+	<delete id="So_ReviewDelete">
+		delete review where bno=#{bno}
+	</delete>
+	
+	<update id="So_ReviewModify">
+		update review set contents=#{contents},rate=#{rate},mem_id=#{mem_id} where bno=#{bno}
+	</update>
+	
+	<!-- 전체 글 개수 카운트 -->
+	<select id="So_ReviewCount" resultType="int">
+		select count(*) from review
+	</select>
+	
+	
+</mapper>
