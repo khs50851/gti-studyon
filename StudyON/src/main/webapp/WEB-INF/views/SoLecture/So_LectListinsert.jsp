@@ -28,6 +28,8 @@
 			
 			var formData = new FormData();
 			formData.append("lect_name",$("#lect_name").val());
+			formData.append("lect_code",$("#lect_code").val());
+			formData.append("lect_round",$("#lect_round").val());
 			
 			var inputFile = $("input[name='uploadFile']");
 			

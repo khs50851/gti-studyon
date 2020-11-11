@@ -89,13 +89,21 @@ public class SoLectureController {
 	
 	// Ajax 타입
 	@PostMapping("/uploadAjaxAction")
-	public void uploadAjaxPost(MultipartFile[] uploadFile) {
+	public void uploadAjaxPost(MultipartFile[] uploadFile, @RequestParam("lect_code") String lect_code) {
 		
 		log.info("update ajax post.........");
 		
 		// 저장 폴더 위치
 		String uploadFolder = "/Volumes/HoMill D drive/Programing_Project/StudyON_Upload/lecture";
 		
+		// 폴더 만들기
+//		String folderName = Integer.toString(lect_code);
+		File uploadPath = new File(uploadFolder, lect_code);
+		log.info("upload path : " + uploadPath);
+		
+		if(uploadPath.exists() == false) {
+			uploadPath.mkdirs();
+		}
 		
 		for (MultipartFile multipartFile : uploadFile) {
 			
@@ -109,7 +117,8 @@ public class SoLectureController {
 			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
 			log.info("only file name : " + uploadFileName);
 			
-			File saveFile = new File(uploadFolder, uploadFileName);
+//			File saveFile = new File(uploadFolder, uploadFileName);
+			File saveFile = new File(uploadPath, uploadFileName);
 			
 			try {
 				
